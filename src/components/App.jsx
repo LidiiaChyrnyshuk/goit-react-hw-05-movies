@@ -1,10 +1,10 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { Layout } from './Layout/Layout';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
 
-const Home = lazy(() => import('../pages/Home.jsx'));
-const Movies = lazy(() => import('../pages/Movies.jsx'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails.jsx'));
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast'));
 const Reviews = lazy(() => import('./Reviews'));
 
@@ -18,7 +18,7 @@ export const App = () => {
         <Route path="cast" element={<Cast />} />
         <Route path="reviews" element={<Reviews />} />
       </Route>
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

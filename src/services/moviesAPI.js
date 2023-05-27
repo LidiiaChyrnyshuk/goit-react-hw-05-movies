@@ -24,20 +24,20 @@ export const getMoviesByTitle = async query => {
   return data.results;
 };
 
-export const getMovieDetailsById = async movie_id => {
-  const path = `/movie/${movie_id}`;
+export const getMovieDetailsById = async movieId => {
+  const path = `/movie/${movieId}`;
   const { data } = await axios.get(`${path}?${seachParams}`);
   return data;
 };
 
-export const getMovieCreditsById = async movie_id => {
-  const path = `/movie/${movie_id}/credits`;
+export const getMovieCreditsById = async movieId => {
+  const path = `/movie/${movieId}/credits`;
   const { data } = await axios.get(`${path}?${seachParams}`);
   return data.cast;
 };
 
-export const getMovieReviewsById = async movie_id => {
-  const path = `/movie/${movie_id}/reviews`;
+export const getMovieReviewsById = async movieId => {
+  const path = `/movie/${movieId}/reviews`;
   const { data } = await axios.get(`${path}?${seachParams}`);
   return data.results;
 };
