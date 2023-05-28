@@ -1,31 +1,19 @@
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import styled from '@emotion/styled';
+import { Outlet } from 'react-router-dom';
+import { StyledLink, Header } from './Layout.styled';
 import Loader from 'components/Loader/Loader';
-
-const StyledLink = styled(NavLink)`
-  color: #212121;
-
-  &.active {
-    color: orangered;
-  }
-`;
 
 const Layout = () => {
   return (
     <>
-      <header>
+      <Header>
         <div>
-          <ul>
-            <li>
-              <StyledLink to="/">Home</StyledLink>
-            </li>
-            <li>
-              <StyledLink to="/movies">Movies</StyledLink>
-            </li>
-          </ul>
+          <nav>
+            <StyledLink to="/">Home</StyledLink>
+            <StyledLink to="/movies">Movies</StyledLink>
+          </nav>
         </div>
-      </header>
+      </Header>
 
       <main>
         <Suspense fallback={<Loader />}>

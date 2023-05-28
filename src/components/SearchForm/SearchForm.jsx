@@ -1,4 +1,10 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+import {
+  SearchFormStyled,
+  SearchFormInput,
+  BtnSearch,
+} from './SeachForm.styled';
 
 const SearchForm = ({ onSubmit }) => {
   const [value, setValue] = useState('');
@@ -18,9 +24,9 @@ const SearchForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <SearchFormStyled onSubmit={handleSubmit}>
       <label>
-        <input
+        <SearchFormInput
           onChange={handleChange}
           value={value}
           type="text"
@@ -29,9 +35,13 @@ const SearchForm = ({ onSubmit }) => {
           placeholder="Search movies"
         />
       </label>
-      <button type="submit"></button>
-    </form>
+      <BtnSearch type="submit">Seach</BtnSearch>
+    </SearchFormStyled>
   );
+};
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

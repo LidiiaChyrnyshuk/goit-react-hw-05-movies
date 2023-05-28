@@ -32,7 +32,7 @@ const Movies = () => {
       <div>
         <SearchForm onSubmit={onSubmit} />
         {movies && <MoviesList movies={movies} />}
-        {movies?.length === 0 && <p>Sorry, there is no movies your request.</p>}
+        {/* {movies?.length === 0 && <p>Sorry, there is no movies your request.</p>} */}
         {isLoading && <Loader />}
       </div>
     </section>

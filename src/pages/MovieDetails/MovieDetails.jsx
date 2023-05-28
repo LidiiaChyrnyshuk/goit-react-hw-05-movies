@@ -26,18 +26,22 @@ const MovieDetails = () => {
         {isLoading && <Loader />}
         <GoBackLink path={location?.state?.from ?? '/'} />
         <MovieInfo {...movie} />
-        <ul>
-          <li>
-            <Link to="cast" state={location.state?.from ?? '/'}>
-              Cast
-            </Link>
-          </li>
-          <li>
-            <Link to="reviews" state={location.state?.from ?? '/'}>
-              Reviews
-            </Link>
-          </li>
-        </ul>
+        <div>
+          <p>Additional information</p>
+          <ul>
+            <li>
+              <Link to="cast" state={location.state?.from ?? '/'}>
+                Cast
+              </Link>
+            </li>
+            <li>
+              <Link to="reviews" state={location.state?.from ?? '/'}>
+                Reviews
+              </Link>
+            </li>
+          </ul>
+        </div>
+
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
