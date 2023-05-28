@@ -17,7 +17,7 @@ const Movies = () => {
       return;
     }
     getMoviesByTitle(query)
-      .then(setMovies)
+      .then(console.log)
       .finally(() => {
         setIsLoadign(false);
       });
@@ -32,6 +32,7 @@ const Movies = () => {
       <div>
         <SearchForm onSubmit={onSubmit} />
         {movies && <MoviesList movies={movies} />}
+        {movies?.length === 0 && <p>Sorry, there is no movies your request.</p>}
         {isLoading && <Loader />}
       </div>
     </section>
