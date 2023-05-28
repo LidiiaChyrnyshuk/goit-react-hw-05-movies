@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
+import { ReviewsInfo } from './ReviewsList.styled';
 
 const ReviewsList = ({ reviews }) => {
   return (
-    <ul>
+    <ReviewsInfo>
       {reviews.map(item => (
         <li key={item.id}>
           <h3>Author: {item.author}</h3>
           <p>{item.content}</p>
         </li>
       ))}
-    </ul>
+    </ReviewsInfo>
   );
 };
 

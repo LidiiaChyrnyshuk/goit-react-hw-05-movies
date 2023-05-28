@@ -4,8 +4,10 @@ import MovieInfo from 'components/MovieInfo/MovieInfo';
 import { Suspense } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getMovieDetailsById } from 'services/moviesAPI';
+import { Contaner } from '../Home/Home.styled';
+import { DetailsList, DetailsLink } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const [movie, SetMovie] = useState(null);
@@ -22,30 +24,30 @@ const MovieDetails = () => {
 
   return (
     <section>
-      <div>
+      <Contaner>
         {isLoading && <Loader />}
         <GoBackLink path={location?.state?.from ?? '/'} />
         <MovieInfo {...movie} />
         <div>
           <p>Additional information</p>
-          <ul>
+          <DetailsList>
             <li>
-              <Link to="cast" state={location.state?.from ?? '/'}>
+              <DetailsLink to="cast" state={location.state?.from ?? '/'}>
                 Cast
-              </Link>
+              </DetailsLink>
             </li>
             <li>
-              <Link to="reviews" state={location.state?.from ?? '/'}>
+              <DetailsLink to="reviews" state={location.state?.from ?? '/'}>
                 Reviews
-              </Link>
+              </DetailsLink>
             </li>
-          </ul>
+          </DetailsList>
         </div>
 
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </div>
+      </Contaner>
     </section>
   );
 };

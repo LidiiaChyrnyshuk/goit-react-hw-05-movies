@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Wrapper, InfoList } from './MovieInfo.styled';
 
 const MovieInfo = ({
   poster_path,
@@ -9,7 +10,7 @@ const MovieInfo = ({
   genres = [],
 }) => {
   return (
-    <div>
+    <Wrapper>
       <div>
         <img
           src={
@@ -21,17 +22,17 @@ const MovieInfo = ({
         />
       </div>
 
-      <div>
+      <InfoList>
         <h1>
           {title}({release_date.substr(0, 4)})
         </h1>
         <p>User score:{Math.round(vote_average * 10)}%</p>
-        <h2>Overview</h2>
+        <h3>Overview</h3>
         <p>{overview ? overview : 'Sorry, we do not have information.'}</p>
-        <h2>Genres</h2>
+        <h3>Genres</h3>
         <p>{genres.map(item => item.name).join(', ')}</p>
-      </div>
-    </div>
+      </InfoList>
+    </Wrapper>
   );
 };
 

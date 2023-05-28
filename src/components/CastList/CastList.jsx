@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { CastListInfo } from './CastList.styled';
 
 const CastList = ({ cast }) => {
   return (
-    <ul>
+    <CastListInfo>
       {cast.map(item => (
         <li key={item.id}>
           <img
@@ -17,7 +18,7 @@ const CastList = ({ cast }) => {
           <p>Character:{item.character}</p>
         </li>
       ))}
-    </ul>
+    </CastListInfo>
   );
 };
 
