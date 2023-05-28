@@ -17,7 +17,7 @@ const Movies = () => {
       return;
     }
     getMoviesByTitle(query)
-      .then(console.log)
+      .then(setMovies)
       .finally(() => {
         setIsLoadign(false);
       });
