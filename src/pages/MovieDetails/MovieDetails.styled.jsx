@@ -11,5 +11,10 @@ export const DetailsList = styled.ul`
 export const DetailsLink = styled(Link)`
   color: black;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
+
+  &:hover,
+  &:focus {
+    color: aqua;
+  }
 `;

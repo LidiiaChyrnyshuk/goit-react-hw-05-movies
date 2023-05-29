@@ -22,7 +22,7 @@ export const StyledLink = styled(NavLink)`
   background-color:white;
   }
     &.active {
-    color: orangered;
+    
     background-color:aqua;
     pointer-events: none;
   }

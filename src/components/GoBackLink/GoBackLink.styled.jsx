@@ -6,7 +6,7 @@ export const BackLink = styled(Link)`
   align-items: center;
   justify-content: center;
   width: 80px;
-  height: 45px;
+  height: 35px;
   text-decoration: none;
   text-align: center;
   font-size: 20px;

@@ -5,4 +5,8 @@ export const Contaner = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+
+  & > h1 {
+    text-align: center;
+  }
 `;
