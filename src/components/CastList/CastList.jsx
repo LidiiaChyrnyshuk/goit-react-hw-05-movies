@@ -26,7 +26,7 @@ CastList.propTypes = {
   cast: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      profile_path: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
       name: PropTypes.string.isRequired,
       character: PropTypes.string.isRequired,
     }).isRequired

@@ -1,7 +1,7 @@
 import { GoBackLink } from 'components/GoBackLink/GoBackLink';
 import Loader from 'components/Loader/Loader';
 import MovieInfo from 'components/MovieInfo/MovieInfo';
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
@@ -14,6 +14,7 @@ const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
+  const backLinkLocationRef = useRef(location?.state?.from ?? '/');
 
   useEffect(() => {
     getMovieDetailsById(movieId).then(SetMovie).finally(setIsLoading(false));
@@ -26,18 +27,18 @@ const MovieDetails = () => {
     <section>
       <Contaner>
         {isLoading && <Loader />}
-        <GoBackLink path={location?.state?.from ?? '/'} />
+        <GoBackLink path={backLinkLocationRef.current} />
         <MovieInfo {...movie} />
         <div>
           <p>Additional information</p>
           <DetailsList>
             <li>
-              <DetailsLink to="cast" state={location.state?.from ?? '/'}>
+              <DetailsLink to="cast" state={backLinkLocationRef.current}>
                 Cast
               </DetailsLink>
             </li>
             <li>
-              <DetailsLink to="reviews" state={location.state?.from ?? '/'}>
+              <DetailsLink to="reviews" state={backLinkLocationRef.current}>
                 Reviews
               </DetailsLink>
             </li>
